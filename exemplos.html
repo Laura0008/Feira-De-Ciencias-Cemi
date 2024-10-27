@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <title>PANCs - Exemplos</title>
+</head>
+<body>
+    <div class="sidebar" id="sidebar">
+        <a href="index.html">&#8592; Voltar ao menu principal</a>
+        <a href="sobre.html">Sobre as PANCs</a>
+        <a href="receitas.html">Receitas</a>
+        <a href="referencias.html">Referências Bibliográficas</a>
+    </div>
+
+    <div class="container">
+        <h2 id="image-title">Azedinho</h2> <!-- Adicione esse elemento -->
+        <div class="arrow left-arrow" onclick="previousImage()">&#10094;</div>
+        <img id="example-image" src="azendinho.jpeg" alt="Exemplo PANCs">
+        <div class="arrow right-arrow" onclick="nextImage()">&#10095;</div>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+        <span>☰</span> <!-- Ícone do menu -->
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

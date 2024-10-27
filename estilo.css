@@ -1,0 +1,353 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    position: relative;
+    background-color: #f0f8f0; /* Cor de fundo suave */
+    color: #333; /* Cor do texto principal */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar {
+    width: 200px;
+    background-color: #4CAF50; /* Verde natural */
+    padding: 15px;
+    color: white;
+    position: absolute;
+    left: -220px; /* Começa fora da tela */
+    transition: left 0.3s ease; /* Animação de transição */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3); /* Sombra para a sidebar */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+.sidebar.open {
+    left: 0; /* Move para dentro da tela */
+}
+
+.conteudo {
+    padding: 20px;
+    flex-grow: 1;
+    margin-left: 10px; /* Espaço para a sidebar */
+    margin-left: 220px; /* Adicionando espaço para a sidebar */
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    color: #2E8B57; /* Verde escuro para o título */
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.6; /* Aumentando a altura da linha para melhor legibilidade */
+}
+
+/* Estilos gerais da sidebar */
+.sidebar {
+    display: none; /* Oculta a sidebar por padrão */
+    position: fixed; /* Fixa a sidebar à esquerda */
+    top: 0; /* Alinha no topo da página */
+    left: 0; /* Fixa à esquerda */
+    width: 250px; /* Largura da sidebar */
+    height: 100%; /* Altura total */
+    background-color: #f8f8f8; /* Cor de fundo */
+    padding-top: 20px; /* Espaço no topo */
+    transition: transform 0.3s ease; /* Animação suave de abertura */
+    z-index: 1000; /* Certifique-se de que está sobreposta a outros elementos */
+}
+
+/* Quando a sidebar está ativa (visível) */
+.sidebar.active {
+    display: block; /* Torna visível */
+    transform: translateX(0); /* Move para dentro da tela */
+}
+
+/* Estilo dos links da sidebar */
+.sidebar a {
+    display: block; /* Coloca os links em blocos separados */
+    padding: 10px 15px; /* Espaçamento interno para os links */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 18px; /* Tamanho da fonte dos links */
+    color: #333; /* Cor do texto dos links */
+    font-family: 'Roboto', sans-serif; /* Fonte */
+    transition: background-color 0.3s ease; /* Animação para hover */
+}
+
+/* Quando o mouse passar sobre os links da sidebar */
+.sidebar a:hover {
+    background-color: #ddd; /* Cor de fundo ao passar o mouse */
+    color: #000; /* Cor do texto ao passar o mouse */
+}
+
+/* Estilo para a área de conteúdo, ajustada para deixar espaço para a sidebar */
+.conteudo {
+    margin-left: 250px; /* Espaço para a sidebar */
+    padding: 20px; /* Espaçamento interno da área de conteúdo */
+    font-family: 'Roboto', sans-serif; /* Fonte do conteúdo */
+}
+
+/* Estilo do ícone do menu */
+.menu-toggle {
+    position: fixed;
+    top: 20px; /* Ajuste a posição para o topo */
+    left: 20px; /* Ajuste a posição para a esquerda */
+    font-size: 30px; /* Tamanho do ícone */
+    cursor: pointer; /* Cursor de clique */
+    z-index: 1001; /* Certifique-se de que está sobreposta a outros elementos */
+}
+
+/* Animação suave ao abrir a sidebar */
+.sidebar {
+    transform: translateX(-250px); /* Inicialmente oculta fora da tela */
+}
+
+.sidebar.active {
+    transform: translateX(0); /* Move para dentro da tela quando ativa */
+}
+
+/* Ajuste para telas pequenas (smartphones e tablets) */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 200px; /* Reduz um pouco a largura da sidebar */
+    }
+
+    .conteudo {
+        margin-left: 0; /* Remove o espaço extra para a sidebar */
+        padding: 10px; /* Diminui o padding para caber melhor em telas pequenas */
+    }
+
+    /* Estilos de fonte ajustados para telas menores */
+    .sidebar a {
+        font-size: 16px; /* Reduz o tamanho da fonte */
+        padding: 10px 10px; /* Ajusta o espaçamento dos links */
+    }
+
+    .menu-toggle {
+        left: 10px; /* Ajuste o ícone do menu para não sobrepor o conteúdo */
+        font-size: 25px; /* Reduz um pouco o ícone para telas menores */
+    }
+}
+
+/* Ajuste para telas muito pequenas (smartphones com telas menores) */
+@media screen and (max-width: 480px) {
+    .sidebar {
+        width: 180px; /* Reduz mais a largura da sidebar */
+    }
+
+    .menu-toggle {
+        top: 15px; /* Ajusta a posição do ícone para telas muito pequenas */
+        left: 5px;  /* Deixa o ícone mais para a esquerda */
+        font-size: 25px; /* Reduz o tamanho do ícone */
+    }
+
+    .conteudo h1, .conteudo h2, .conteudo p {
+        text-align: center; /* Centraliza o texto em telas muito pequenas */
+    }
+}
+
+/* Estilo do ícone do menu (três barras) */
+.menu-toggle {
+    position: fixed;
+    top: 20px; /* Ajusta a posição para o topo */
+    left: 20px; /* Ajusta a posição para a esquerda */
+    font-size: 20px; /* Reduz o tamanho do ícone para que não fique muito grande */
+    cursor: pointer; /* Cursor de clique */
+    z-index: 1001; /* Certifique-se de que está sobreposta a outros elementos */
+}
+
+/* Ajuste para telas pequenas */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        left: 10px; /* Ajuste o ícone do menu para não sobrepor o conteúdo */
+        font-size: 18px; /* Reduz mais o ícone para telas menores */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .menu-toggle {
+        top: 15px; /* Ajusta a posição do ícone para telas muito pequenas */
+        left: 5px;  /* Deixa o ícone mais para a esquerda */
+        font-size: 16px; /* Reduz o tamanho do ícone */
+    }
+}
+
+
+/* Estilo para o container da imagem e setas */
+.container {
+    position: relative;
+    text-align: center;
+    width: 60%; /* Define a largura do container */
+    height: 100vh; /* Define a altura para preencher a tela */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente */
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo para o container da imagem e setas */
+.container {
+    position: relative;
+    text-align: center;
+    width: 60%; /* Define a largura do container */
+    height: 100vh; /* Define a altura para preencher a tela */
+    display: flex;
+    flex-direction: column; /* Alinha o título acima da imagem */
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo para a imagem */
+#example-image {
+    max-width: 80%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+/* Estilo para o título da imagem */
+#image-title {
+    font-size: 24px;
+    color: #388E3C; /* Cor verde, pode ajustar */
+    text-align: center;
+    margin-bottom: 10px; /* Pequeno espaço entre o título e a imagem */
+    font-family: 'Montserrat', sans-serif;
+    z-index: 10; /* Mantém o título acima de outros elementos */
+}
+
+/* Estilo para as setas */
+.arrow {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 48px;
+    color: #4CAF50;
+    z-index: 10;
+    padding: 10px;
+    user-select: none;
+}
+
+.left-arrow {
+    left: -50px;
+}
+
+.right-arrow {
+    right: -50px;
+}
+
+.arrow:hover {
+    color: #388E3C;
+}
+
+/* Estilo da estrutura geral */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+}
+
+/* Estilo para alinhar o texto e a imagem */
+.content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinha o texto e a imagem ao topo */
+}
+
+/* Estilo para a seção de texto */
+.text-section {
+    width: 60%; /* Ajuste a largura da área de texto */
+}
+
+/* Estilo para a seção da imagem */
+.image-section {
+    width: 35%; /* Ajuste a largura da área de imagem */
+    display: flex;
+    justify-content: flex-end; /* Alinha a imagem à direita */
+}
+
+.image-section img {
+    max-width: 100%; /* Garante que a imagem não ultrapasse o container */
+    height: auto;
+    border-radius: 8px; /* Adiciona bordas arredondadas para deixar mais elegante */
+}
+
+/* Estilo para o título */
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    color: #388E3C;
+    margin-bottom: 20px;
+}
+
+/* Estilo para a lista de ingredientes */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul ul {
+    list-style-type: circle;
+    padding-left: 20px;
+}
+
+li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #4CAF50;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0; /* Remove margens padrão do body */
+    padding: 0; /* Remove preenchimento padrão do body */
+}
+
+.conteudo {
+    padding: 20px; /* Espaçamento em torno do conteúdo */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilos para telas menores */
+@media (max-width: 768px) {
+    .conteudo {
+        padding: 10px; /* Reduz o espaçamento em telas menores */
+    }
+    .image-section img {
+        width: 100%; /* Imagens ocupam toda a largura em dispositivos móveis */
+        height: auto; /* Mantém a proporção */
+    }
+}
+
+/* Centraliza o título e seções de receita */
+h1, h2 {
+    margin: 0 auto; /* Centraliza o título */
+}
+
+/* Para garantir que as seções sejam responsivas */
+.image-section {
+    display: flex;
+    justify-content: center; /* Centraliza a imagem na seção */
+    margin-top: 20px; /* Espaçamento acima da imagem */
+}
+
+footer {
+    background-color: #f8f8f8; /* Cor de fundo do footer */
+    padding: 20px; /* Espaçamento interno */
+    text-align: center; /* Centraliza o texto */
+    position: relative; /* Para poder aplicar o layout corretamente */
+}
+
+.footer-content {
+    max-width: 800px; /* Limita a largura do conteúdo do footer */
+    margin: 0 auto; /* Centraliza o conteúdo do footer */
+}
+
+.footer-logo {
+    width: 100px; /* Ajuste o tamanho da imagem do logo */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-bottom: 10px; /* Espaçamento abaixo da imagem */
+}
